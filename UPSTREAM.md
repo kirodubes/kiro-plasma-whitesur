@@ -9,6 +9,7 @@ Everything needed to refresh this theme from upstream in the future.
 | look-and-feel, desktoptheme, aurorae, color-schemes | **`install.sh` output** from `vinceliuice/WhiteSur-kde` | captured from the Plasma test box after running the official installer |
 | Kvantum, SDDM | `https://github.com/vinceliuice/WhiteSur-kde` @ `1e4d960` | git (static dirs) |
 | Cursors | `https://github.com/vinceliuice/WhiteSur-cursors` @ `e190baf` | bundled `dist/` |
+| Icons | `https://github.com/vinceliuice/WhiteSur-icon-theme` | **fetched + built at every package build** (PKGBUILD `git+` source), installed as `kiro-whitesur*` |
 
 - **Author:** vinceliuice · **License:** GPL-3.0 (upstream `LICENSE` carried in).
 - **Plasma 6:** WhiteSur is P6-native (`metadata.json`, `X-Plasma-APIVersion 2`). SDDM
@@ -49,8 +50,10 @@ From `vinceliuice/WhiteSur-cursors`: `dist/` → `usr/share/icons/WhiteSur-curso
    color-schemes}/WhiteSur*` back into `usr/share/`.
 3. Re-copy `Kvantum/*`, `sddm/WhiteSur-6.2`→`sddm/themes/WhiteSur` from git, and cursors
    `dist/` from WhiteSur-cursors.
-4. **No defaults edits** — defaults reference `WhiteSur` icons (external dep
-   `whitesur-icon-theme`) and `WhiteSur-cursors` (bundled). Both satisfied.
+4. **Icons:** the 3 look-and-feel `defaults` reference `kiro-whitesur{,-light,-dark}` —
+   the WhiteSur icon theme renamed at build time (PKGBUILD runs `install.sh -n kiro-whitesur`)
+   to avoid the AUR `whitesur-icon-theme` file conflict. Keep that rename in sync if the
+   defaults change. Cursors (`WhiteSur-cursors`) are bundled.
 
 Kiro-only file (not upstream — leave as is on refresh):
 - `etc/skel/.config/Kvantum/kvantum.kvconfig` → `[General] theme=WhiteSur`

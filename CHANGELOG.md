@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026.06.20 — bundle WhiteSur icons (renamed, no external dep)
+
+### What Changed
+- **Bundled the WhiteSur icon theme into the package** instead of depending on
+  `whitesur-icon-theme` (which is AUR-only — not in the official/nemesis repos, so the
+  build couldn't resolve it as a dependency).
+- The icons are **re-fetched fresh from `vinceliuice/WhiteSur-icon-theme` on every build**
+  (a second `git+` source in the PKGBUILD) and installed via upstream `install.sh -n
+  kiro-whitesur`, so they land as **`kiro-whitesur{,-light,-dark}`** — renamed to avoid the
+  `/usr/share/icons/WhiteSur` file conflict with the AUR `whitesur-icon-theme` package.
+- Repointed the three look-and-feel `defaults` icon themes to `kiro-whitesur`,
+  `kiro-whitesur-dark`, `kiro-whitesur-light` to match.
+- Recipe: dropped `whitesur-icon-theme` from `depends` (now `kvantum`, `sddm`); added
+  `gtk-update-icon-cache` to `makedepends`.
+
 ## 2026.06.20 — initial package
 
 ### What Changed
