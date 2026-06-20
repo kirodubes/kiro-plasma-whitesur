@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026.06.20 — Kvantum default via install scriptlet (no packaged kvconfig)
+
+### What Changed
+- Stopped shipping a packaged `kvantum.kvconfig`. The Kvantum selection is now written by a
+  pacman **install scriptlet** to `/etc/skel/.config/Kvantum/kvantum.kvconfig` (`theme=Kiro-WhiteSur`)
+  on install/upgrade. This removes the shared-file clash on that path (with `kiro-kvantum` and
+  the other kiro-plasma themes) — they all coexist now; last-installed theme wins, falling back
+  to `kiro-kvantum`'s `ArcDark` baseline.
+
+### Technical Details
+- Removed the `etc/` payload entirely (it held only the Kvantum selection); the PKGBUILD no
+  longer copies `etc/`. Added `install=kiro-plasma-whitesur.install` (`post_install`/`post_upgrade`)
+  and `depends+=('kiro-kvantum')` so the overwritten baseline stays package-owned and the
+  override is deterministic. Dropped `conflicts=('kiro-kvantum')` (no longer needed).
+
+### Files Modified
+- Removed `etc/skel/.config/Kvantum/kvantum.kvconfig` (+ empty `etc/`)
+- `../KIRO-PKG-BUILD-APPS/kiro-plasma-whitesur/PKGBUILD` — drop `cp etc`, add `install=` + `kiro-kvantum` dep, drop conflicts
+- `../KIRO-PKG-BUILD-APPS/kiro-plasma-whitesur/kiro-plasma-whitesur.install` — new scriptlet
+
 ## 2026.06.20 — rename theme identity to Kiro namespace (coexist with upstream WhiteSur)
 
 ### What Changed
