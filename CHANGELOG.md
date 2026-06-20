@@ -1,5 +1,34 @@
 # Changelog
 
+## 2026.06.20 — rename theme identity to Kiro namespace (coexist with upstream WhiteSur)
+
+### What Changed
+- Renamed every shipped theme identity from the upstream `WhiteSur` name into a `Kiro-`
+  namespace so the package **coexists with the upstream WhiteSur theme** — a user can
+  install `whitesur-kde-theme-git` alongside this without any pacman file conflict — and so
+  System Settings shows honest **Kiro WhiteSur** / **Kiro WhiteSur Dark** / **Kiro WhiteSur
+  Alt** labels.
+
+### Technical Details
+- Look-and-feel `com.github.vinceliuice.WhiteSur{,-dark,-alt}` → `com.kiroproject.WhiteSur*`
+  (both `metadata.json` and legacy `metadata.desktop`). Desktoptheme (×3), aurorae (×10 incl.
+  all HiDPI `_x*` variants, each with its `*rc`), Kvantum (×2 incl. inner `*Dark` configs/svgs),
+  SDDM, the 3 color schemes, and the cursor theme all prefixed `Kiro-`.
+- SDDM `Main.qml` absolute self-paths repointed to the renamed dir.
+- Cross-references repointed: the 3 look-and-feel `defaults` (`cursorTheme`/`ColorScheme`/
+  `__aurorae__svg__`/`plasmarc name`) and `etc/skel` Kvantum `theme=Kiro-WhiteSur`. The
+  bundled icon theme (`kiro-whitesur{,-light,-dark}`) was already Kiro-named — unchanged.
+  Logout-screen QML references an external WhiteSur *wallpaper* package (not shipped here) —
+  left as-is.
+- PKGBUILD: dropped `conflicts=(whitesur-kde-theme-git)` and bumped `pkgrel`. The
+  `install.sh -n kiro-whitesur` icon-build step is unchanged.
+
+### Files Modified
+- Renamed all theme dirs/files under `usr/share/{plasma,aurorae,color-schemes,Kvantum,sddm,icons}` to `Kiro-WhiteSur*`
+- The 3 look-and-feel `contents/defaults`, SDDM `Main.qml`, `etc/skel/.config/Kvantum/kvantum.kvconfig` — repointed
+- `README.md`, `CLAUDE.md` — Kiro WhiteSur naming + coexistence note
+- `../KIRO-PKG-BUILD-APPS/kiro-plasma-whitesur/PKGBUILD` — drop upstream conflicts, bump pkgrel
+
 ## 2026.06.20 — bundle WhiteSur icons (renamed, no external dep)
 
 ### What Changed
