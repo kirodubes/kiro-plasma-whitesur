@@ -24,8 +24,10 @@ layers:
 | SDDM login theme | `/usr/share/sddm/themes/WhiteSur` | Plasma 6 (Qt6) |
 | Cursors | `/usr/share/icons/WhiteSur-cursors` | bundled WhiteSur cursors |
 
-**Icons:** the theme uses the **WhiteSur** icon set, so the package depends on
-`whitesur-icon-theme`. WhiteSur is Plasma-6 native — no metadata conversion needed.
+**Icons:** the WhiteSur icon set is **bundled** (built fresh from upstream at every
+package build) and installed as **`kiro-whitesur`** (`/usr/share/icons/kiro-whitesur{,-light,-dark}`)
+so it never conflicts with the AUR `whitesur-icon-theme` package — no external icon
+dependency. WhiteSur is Plasma-6 native — no metadata conversion needed.
 
 ## Install
 
