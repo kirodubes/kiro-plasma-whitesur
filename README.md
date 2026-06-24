@@ -13,17 +13,17 @@ theme** — install the real `whitesur-kde-theme-git` alongside it without any f
 ## What it ships
 
 Global Themes you select in **System Settings → Appearance → Global Themes**:
-**Kiro WhiteSur** (light), **Kiro WhiteSur Dark**, and **Kiro WhiteSur Alt**, each with its full set of
+**Kiro WhiteSur** (light) and **Kiro WhiteSur Alt**, each with its full set of
 layers:
 
 | Layer | Path | Notes |
 |---------------------|------------------------------------------|------------------------------|
-| Plasma desktop theme | `/usr/share/plasma/desktoptheme/Kiro-WhiteSur{,-dark,-alt}` | panels, widgets, popups |
-| Global themes (look-and-feel) | `/usr/share/plasma/look-and-feel/com.kiroproject.WhiteSur{,-dark,-alt}` | the three variants |
-| Window decorations | `/usr/share/aurorae/themes/Kiro-WhiteSur*` | light + dark, incl. HiDPI scales (x1.25–x2.0) |
-| Color schemes | `/usr/share/color-schemes/Kiro-WhiteSur{,Alt,Dark}.colors` | application colours |
+| Plasma desktop theme | `/usr/share/plasma/desktoptheme/Kiro-WhiteSur{,-alt}` | panels, widgets, popups |
+| Global themes (look-and-feel) | `/usr/share/plasma/look-and-feel/com.kiroproject.WhiteSur{,-alt}` | the two variants |
+| Window decorations | `/usr/share/aurorae/themes/Kiro-WhiteSur*` | incl. HiDPI scales (x1.25–x2.0) |
+| Color schemes | `/usr/share/color-schemes/Kiro-WhiteSur{,Alt}.colors` | application colours |
 | Kvantum themes | `/usr/share/Kvantum/Kiro-WhiteSur{,-opaque}` | Qt app styling |
-| Kvantum default selection | `/etc/skel/.config/Kvantum/kvantum.kvconfig` | new users get `Kiro-WhiteSur` |
+| Kvantum default selection | `/etc/skel/.config/Kvantum/kvantum.kvconfig` | new users get `Kiro-WhiteSur-opaque` |
 | SDDM login theme | `/usr/share/sddm/themes/Kiro-WhiteSur` | Plasma 6 (Qt6) |
 | Cursors | `/usr/share/icons/Kiro-WhiteSur-cursors` | bundled WhiteSur cursors |
 
@@ -38,8 +38,8 @@ dependency. WhiteSur is Plasma-6 native — no metadata conversion needed.
 sudo pacman -S kiro-plasma-whitesur
 ```
 
-Then open **System Settings → Appearance → Global Themes** and apply **Kiro WhiteSur**,
-**Kiro WhiteSur Dark**, or **Kiro WhiteSur Alt**. New users get the Kiro WhiteSur Kvantum theme for Qt
+Then open **System Settings → Appearance → Global Themes** and apply **Kiro WhiteSur**
+or **Kiro WhiteSur Alt**. New users get the Kiro WhiteSur (opaque) Kvantum theme for Qt
 apps automatically; existing users can pick it in **Kvantum Manager**.
 
 ## Heritage

@@ -2,7 +2,9 @@
 
 ## Overview
 The **WhiteSur** (macOS-style) Plasma global theme for the Kiro Plasma edition. Ships
-Kiro WhiteSur (light), Kiro WhiteSur Dark, Kiro WhiteSur Alt as Global Themes. Sibling to
+Kiro WhiteSur (light) and Kiro WhiteSur Alt as Global Themes (dark variant removed
+2026-06-24 — WhiteSur is a light theme, and Plasma doesn't apply a theme's colour scheme
+on click so "Dark" rendered with light app colours). Sibling to
 [[kiro-plasma-sweet]], [[kiro-plasma-nord]], [[kiro-plasma-layan]].
 
 ## Current state
@@ -26,6 +28,6 @@ Kiro WhiteSur (light), Kiro WhiteSur Dark, Kiro WhiteSur Alt as Global Themes. S
 - **Cursors** `Kiro-WhiteSur-cursors` are bundled; defaults reference them (no cursor edit).
 - Aurorae ships HiDPI scale variants (x1.25–x2.0) — keep them; KWin picks by DPI.
 - SDDM from `WhiteSur-6.2` (Qt6) installed as `sddm/themes/Kiro-WhiteSur`; 5.0/6.0 excluded.
-- Kvantum default for new users: `etc/skel/.config/Kvantum/kvantum.kvconfig` → `theme=Kiro-WhiteSur`.
+- Kvantum default for new users: install scriptlet writes `etc/skel/.config/Kvantum/kvantum.kvconfig` → `theme=Kiro-WhiteSur-opaque` (opaque variant — `translucent_windows=false`; the translucent `Kiro-WhiteSur` made Qt windows see-through with no blur backing).
 - Mixed delivery: payload → `/usr/share`, Kvantum selection → `/etc/skel`. PKGBUILD copies both.
 - **Test on the Plasma test box** — it was the capture source; confirm all 3 variants apply.

@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026.06.24 — Default Kvantum theme switched to the opaque variant
+
+### What Changed
+- The install scriptlet now seeds **`theme=Kiro-WhiteSur-opaque`** (was `Kiro-WhiteSur`) into
+  `/etc/skel/.config/Kvantum/kvantum.kvconfig`. The translucent default rendered Qt windows
+  25% see-through (`translucent_windows=true`, `reduce_window_opacity=25`) — with no KWin blur
+  backing it, System Settings and other Qt apps showed the wallpaper through their backgrounds
+  instead of a frosted-glass look. The shipped `Kiro-WhiteSur-opaque` variant
+  (`translucent_windows=false`) fixes this. Verified live on the Plasma test box.
+
+### Technical Details
+- One-line change in `kiro-plasma-whitesur.install` (`post_install`, inherited by `post_upgrade`).
+- `widgetStyle=kvantum`/`kvantum-dark` in the look-and-feel `defaults` are unchanged — the
+  theme *selection* is the kvconfig `theme=` key, so dark resolves to `Kiro-WhiteSur-opaqueDark`.
+- Existing users keep their current `~/.config/Kvantum/kvantum.kvconfig`; this only affects
+  new accounts (`/etc/skel`).
+
+### Files Modified
+- `kiro-plasma-whitesur.install` (build recipe)
+- `CLAUDE.md` (Kvantum default note)
+
 ## 2026.06.20 — Kvantum default via install scriptlet (no packaged kvconfig)
 
 ### What Changed
